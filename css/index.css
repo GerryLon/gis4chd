@@ -1,0 +1,57 @@
+body, html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+	font-family: "微软雅黑";
+}
+
+#allmap {
+	width: 100%;
+	height: 100%;
+}
+
+#container {
+	width: 20%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+/* .info-of-library {
+	opacity: .5;
+} */
+/* 点击图书錧小图标时的信息 */
+.info-of-spots {
+	width: 30%;
+    padding: 0.5em;
+}
+.info-of-spots h4 {
+	margin: 0 0 5px 0;
+	padding: 0.2em 0;
+    text-align: center;
+}
+
+.info-of-spots img {
+	float: right;
+	margin: 4px;
+	min-width: 40%;
+    width: auto;
+    max-width: 50%;
+	height: auto;
+	cursor: pointer;
+}
+
+/*.info-of-spotsCoordinate img:hover {
+	width: 200%;
+	height: 200%;
+}*/
+
+.info-of-spots p {
+	margin: 0;
+	line-height: 1.5;
+	font-size: 13px;
+	text-indent: 2em;
+	width: 55%;
+	text-overflow: ellipsis;
+}
