@@ -1,9 +1,20 @@
+@font-face {
+    font-family: diamond;
+    src: url('../fonts/diamond.ttf'), url('../fonts/diamond.eot'); /* IE9+ */
+}
+
 body, html {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 	margin: 0;
 	font-family: "微软雅黑";
+
+    /* 禁止用户选中 */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #allmap {
@@ -54,4 +65,27 @@ body, html {
 	text-indent: 2em;
 	width: 55%;
 	text-overflow: ellipsis;
+}
+
+/* for welcome */
+#roll {
+    display: none;
+	margin-top: -40%;
+	position: relative;
+   //background-color: #C48BC1;
+    background-color: rgba(139, 65, 133, 0.5); /* 用opacity实现的话文字和背景都透明 */
+    cursor: none !important;
+}
+
+#roll span {
+	width: 12.5%;
+	display: inline-block;
+	text-align: center;
+	font: 5em diamond;
+	visibility: hidden;
+}
+
+#roll h1 {
+	text-align: justify;
+	width: 100%;
 }

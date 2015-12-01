@@ -589,13 +589,34 @@ var GISApp = {
 							that.buildBasicMarker(that.map, {
 								point: that.spotsCoordinate.library
 							});
-						}, 2000)
+						}, 2000);
+
+
 					}
 				});
 
 				that.markCarExperimentalField();
 
-			}, 6000).run();
+			}, 6000).push(function() {
+
+				/* for welcome */
+				var rollContainer = that.$("#roll"),
+						spanList = rollContainer.getElementsByTagName("span"),
+
+						length = spanList.length,
+						i = 0,
+						span = null;
+
+				rollContainer.style.display = "block";
+				var intervalId = setInterval(function() {
+					span = spanList.item(i);
+					span.style.visibility = "visible";
+					++i;
+					if (i >= length) {
+						clearInterval(intervalId);
+					}
+				}, 800);
+			}, 2000).run();
 
 
 		}, false);

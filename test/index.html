@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style type="text/css">
+        #roll {
+            margin-top: 40%;
+        }
+
+        #roll span {
+            width: 12.5%;
+            display: inline-block;
+            text-align: center;
+            font-size: 5em;
+            visibility: hidden;
+        }
+
+        #roll h1 {
+            text-align: justify;
+            width: 100%;
+        }
+
+    </style>
+    <script>
+        window.onload = function() {
+            var rollContainer = document.getElementById("roll"),
+                    spanList = rollContainer.getElementsByTagName("span"),
+                    length = spanList.length,
+                    i = 0,
+                    span = null,
+                    rollFn = function() {
+                        span = spanList.item(i);
+                        span.style.visibility = "visible";
+                        // span.style.
+                        i++;
+                    };
+
+
+            var intervalId = setInterval(function() {
+                try {
+                    rollFn();
+                } catch (e) {
+                    clearInterval(intervalId);
+                }
+
+
+            }, 500);
+        };
+    </script>
+</head>
+<body>
+<div id="roll">
+    <span>欢</span><span>迎</span><span>大</span><span>家</span><span>来</span><span>到</span><span>这</span><span>里</span>
+</div>
+</body>
+</html>
