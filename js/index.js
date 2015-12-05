@@ -26,7 +26,7 @@ var GISApp = {
 	}
 
 	// 扩展功能
-	, extendFunctions: {
+	, utils: {
 
 		Sleeper: function() {
 			var self = this;
@@ -65,6 +65,24 @@ var GISApp = {
 			};
 
 			return self;
+		}
+
+		// get the number in [min, max]
+		, getRandom: function(min, max) {
+
+			if (parseInt(min) !== min || parseInt(max) !== max) {
+				return;
+			}
+
+			return min + Math.floor(Math.random() * (max - min + 1));
+		}
+
+		// 得到随机色
+		, getRandomColor: function() {
+			var R = this.getRandom(0, 255),
+				G = this.getRandom(0, 255),
+				B = this.getRandom(0, 255);
+			return "rgb(" + R + "," + G + "," + B + ")";
 		}
 	}
 	// div 的ID值
@@ -309,7 +327,6 @@ var GISApp = {
 		}, options.interval);
 
 
-
 	}
 
 
@@ -483,7 +500,7 @@ var GISApp = {
 
 
 		window.addEventListener("load", function() {
-			var sleeper = new that.extendFunctions.Sleeper();
+			var sleeper = new that.utils.Sleeper();
 			sleeper.push(function() {
 				that.init();
 				// that.map.setZoom(10);
@@ -597,20 +614,22 @@ var GISApp = {
 
 				that.markCarExperimentalField();
 
-			}, 6000).push(function() {
+			}, 10000).push(function() {
 
 				/* for welcome */
 				var rollContainer = that.$("#roll"),
-						spanList = rollContainer.getElementsByTagName("span"),
+					spanList = rollContainer.getElementsByTagName("span"),
 
-						length = spanList.length,
-						i = 0,
-						span = null;
+					length = spanList.length,
+					i = 0,
+					span = null;
 
 				rollContainer.style.display = "block";
 				var intervalId = setInterval(function() {
 					span = spanList.item(i);
+
 					span.style.visibility = "visible";
+					span.style.color = that.utils.getRandomColor();
 					++i;
 					if (i >= length) {
 						clearInterval(intervalId);
